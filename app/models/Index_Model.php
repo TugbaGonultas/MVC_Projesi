@@ -13,8 +13,5 @@ class Index_Model extends Model {
         
          
     }
-    public function makaleKaydet($data){
-        return $this->db->insert("makaleler", $data);
-    }
 
 }
