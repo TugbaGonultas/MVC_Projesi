@@ -43,7 +43,27 @@ class Index extends Controller {
         }
            $this->load->view("yeniMakale",$data);
     }
+    
+//    public function guncelle() {
+//        $index_model = $this->load->model("index_model");
+//         echo $index_model->guncelle();
+//        
+//    }
+    
+    public function makaleListele(){
+        $index_model = $this->load->model("index_model");
+        $data["makaleListele"] = $index_model->makaleListele();
+        
+        $this->load->view("makaleListele", $data);
+    }
+    public function makaleDuzenle() {
+        
+    }
+    public function makaleSil() {
+        
+    }
 
 }
+
 ?>
 
