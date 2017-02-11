@@ -8,16 +8,19 @@ class Index extends Controller {
         $this->load->view("anasayfa");
         
     }
+    
     public function isimListele(){
        $index_model = $this->load->model("index_model");
        $data["isimListele"] = $index_model->isimListele();
     
        $this->load->view("isimListele",$data);
     }
+    
     public function yeniMakale() {
         $this->load->view("yeniMakale");
         
     }
+    
     public function makaleKaydet() {
         $baslik = $_POST['baslik'];
         $icerik = $_POST['icerik'];
@@ -56,6 +59,7 @@ class Index extends Controller {
         
         $this->load->view("makaleListele", $data);
     }
+    
     public function makaleDuzenle() {
         
     }

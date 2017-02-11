@@ -1,38 +1,14 @@
 
 <?php
 
-include_once 'system/libs/Controller.php';
-include_once 'system/libs/Load.php';
-include_once 'system/libs/Model.php';
-include_once 'system/libs/Database.php';
-
-
-$url = isset($_GET["url"]) ? $_GET["url"] : null;
-if ($url != null) {
-    $url = rtrim($url, "/");
-    $url = explode("/", $url);
-} else {
-    unset($url);
+//system dosyalarını otomatik include ediyoruz.
+function __autoload($className) {
+    include_once 'system/libs/' . $className . '.php';
 }
 
-if (isset($url[0])) {
-
-    include 'app/controllers/' . $url[0] . '.php';
-    $c = new $url[0]();
-
-    if (isset($url[2])) {
-        $c->$url[1]($url[2]);
-    } else {
-        if (isset($url[1])) {
-            $c->$url[1]();
-        } else {
-            //hata
-        }
-    }
-} else {
-    include 'app/controllers/Index.php';
-    $c=new Index();
-    $c ->anasayfa();
-}
+//config dosyasını include ediyoruz
+include_once 'app/config/config.php';
+//bootstrap bölümü
+$boot = new Bootstrap();
 ?>
 
